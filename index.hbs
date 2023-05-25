@@ -1,10 +1,56 @@
-<!-- index.hbs -->
-<h1>The server is running!</h1>
-<p>If you see this text, the server is <strong>definitely</strong> working!</p>
 
-{{!-- Create a table --}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tegridy Grange</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='public/css/styles.css'>
+    <script src='app.js' type="application/javascript"></script>
+</head>
+                
+                <body>
+                <h2>Welcome to Tegridy Grange!</h2>
+                <p> We are a family-owned company and 'We Sell Propane and Propane Accessories!' </p>
+                <img src="/img/images.jpg" alt="Hank's family">
+                <p>As a member of Tegridy Grange, you have the unique perspective of being able to peruse our Employees, Customers, Products, Vendors, Product Sales, and Sales Invoices. Don't abuse your power!</p>
+            
+            </article>
+            <hr>
+            <h3>What You Can Find Here</h3>
+            <h4>
+                <a href="/employees">Employees Table</a>
+            </h4>
+            <p>On this page, you can access and manage the data of our Employees. You have the ability to view, update, and delete employee information.</p>
+            <hr>
+            <h4>
+                <a href="/customers">Customers Table</a>
+            </h4>
+            <p>This page provides access to comprehensive information about our Customers. You have the capability to view, modify, and remove customer data as needed.</p>
+            <hr>
+            <h4>
+                <a href="Products.html" class="link">Products</a>
+            </h4>
+            <p>On this page, you have the ability to access detailed information regarding our Products. You can view, make changes to, and delete product data according to your requirements.</p>
+            <hr>
+            <h4>
+                <a href="Vendors.html" class="link">Vendors</a>
+            </h4>
+            <p>This webpage offers extensive insights into our Vendors, allowing you to effortlessly navigate through their comprehensive information. You have the freedom to effortlessly view, modify, and eliminate vendor data according to your unique requirements.</p>
+            <hr>
+            <h4>
+                <a href="SalesInvoices.html" class="link">Sales Invoices</a>
+            </h4>
+            <p>This page grants you full access to a comprehensive overview of our Sales Invoices. It empowers you to effortlessly view, edit, and delete sales data to suit your specific preferences and needs.</p>
+            <hr>
+            <h4>
+                <a href="ProductSales.html" class="link">Product Sales</a>
+            </h4>
+            <p>This page is designed to provide you with a comprehensive overview of our Product Sales. You have the flexibility to explore, update, and manage product sale data according to your preferences and requirements.</p>
+        </section>
+
+</body>
+
 <table id="employees-table">
-
     {{!-- Header section --}}
     <thead>
 
@@ -16,6 +62,7 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>delete</th>
         </tr>
     </thead>
 
@@ -24,37 +71,15 @@
 
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
-        <tr>
+        <tr data-value={{this.idEmployee}}>
             <td>{{this.idEmployee}}</td>
             <td>{{this.firstName}}</td>
             <td>{{this.lastName}}</td>
             <td>{{this.email}}</td>
             <td>{{this.phoneNumber}}</td>
+            <td><button onclick="deleteEmployee({{this.idEmployee}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
-
-<!-- /views/index.hbs -->
-
-{{!-- Form to add a record to the table  --}}
-<h2>Adding Data with AJAX</h2>
-<p>To add a new employee, please enter their information below and click 'Submit'!</p>
-<form id="add-employee-form-ajax">
-    <label for="input-firstName">First Name: </label>
-    <input type="text" name="input-firstName" id="input-firstName">
-    
-    <label for="input-lastName">Last Name: </label>
-    <input type="text" name="input-lastName" id="input-lastName">
-
-    <label for="input-email">Email: </label>
-    <input type="email" name="input-email" id="input-email">
-
-    <label for="input-phoneNumber">Phone Number: </label>
-    <input type="text" name="input-phoneNumber" id="input-phoneNumber">
-
-    <input type="submit">
-</form>
-
-{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
-<script src="public/js/add_employee.js"></script> 
+<script src="./js/delete_employee.js"></script>

@@ -1,0 +1,70 @@
+{{!-- Create vendor table --}}
+<table id="vendors-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.idVendor}}</td>
+            <td>{{this.vendorName}}</td>
+            <td>{{this.vendorAddress}}</td>
+           
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{!-- INSERT --}}
+
+{{!-- Form to add a record to the table  --}}
+<h2>Adding Data with AJAX</h2>
+<p>To add a new vendor, please enter their information below and click 'Submit'!</p>
+<form id="add-vendor-form-ajax">
+    <label for="input-vendorName">Vendor's Name: </label>
+    <input type="text" name="input-vendorName" id="input-vendomerName">
+    
+    <label for="input-vendorAddress">Vendor's Address: </label>
+    <input type="text" name="input-vendorAddress" id="input-vendorAddress">
+
+    <input type="submit">
+</form>
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="js/add_customer.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
+
+
+{{!-- UPDATE  --}}
+<h2>Updating A Customer Form</h2>
+<p>To update a customer, select their last name from the drop-down menu  </p>
+<form id="update-person-form-ajax">
+
+ 
+
+    <label for="input-address">Last Name: </label>
+    <select name="input-lastName" id="input-lastName-update">
+        <option>Select the Customer</option>
+        {{#each customers}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <input type="submit">
+
+</form>
+
+<script src="./js/update_customer.js"></script>
