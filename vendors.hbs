@@ -33,7 +33,7 @@
 {{!-- INSERT --}}
 
 {{!-- Form to add a record to the table  --}}
-<h2>Adding Data with AJAX</h2>
+<h2>Adding a New Vendor</h2>
 <p>To add a new vendor, please enter their information below and click 'Submit'!</p>
 <form id="add-vendor-form-ajax">
     <label for="input-vendorName">Vendor's Name: </label>
@@ -46,25 +46,25 @@
 </form>
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
-<script src="js/add_customer.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
+<script src="js/add_vendor.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
 
 
 {{!-- UPDATE  --}}
-<h2>Updating A Customer Form</h2>
-<p>To update a customer, select their last name from the drop-down menu  </p>
-<form id="update-person-form-ajax">
+<h2>Updating A Vendor Form</h2>
+<p>To update a vendor, select their name from the drop-down menu  </p>
+<form id="update-vendor-form-ajax">
 
  
 
-    <label for="input-address">Last Name: </label>
-    <select name="input-lastName" id="input-lastName-update">
-        <option>Select the Customer</option>
-        {{#each customers}}
-        <option value="{{this.id}}">{{this.name}}</option>
+    <label for="input-vendorName">Vendor's Name: </label>
+    <select name="input-vendorName" id="input-vendorName-update">
+        <option>Select the Vendor</option>
+        {{#each vendors}}
+        <option value="{{this.idVendor}}">{{this.vendorName}}</option>
         {{/each}}
     </select>
     <input type="submit">
 
 </form>
 
-<script src="./js/update_customer.js"></script>
+<script src="./js/update_vendor.js"></script>

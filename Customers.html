@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='robots' content='noindex,noarchive,nofollow'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Team #69 Tegridy Grange CS 340 Project</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+    <script src='main.js'></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>Tegridy Grange</h1>
+    </header>
+    <hr>
+    <nav>
+
+        <a href="index.html">HomePage</a>
+        <a href="Employees.html">Employees</a>
+        <a href="Customers.html">Customers</a>
+        <a href="Products.html">Products</a>
+        <a href="Vendors.html">Vendors</a>
+        <a href="SalesInvoices.html">Sales Invoices</a>
+        <a href="ProductSales.html">Product Sales</a>
+    </nav>
+
+    <main>
+        
+        <section>
+            <h2>Tegridy Grange</h2>
+    
+            </nav>
+            <article id="customers" class="">
+
+
+                <h3>Customers</h3>
+                <p>Located on this page is a our Customers table! Now be sure to be careful, we don't want to edit any data that we may need for successful orders! </p>
+            </article>
+            <table border="1" cellpadding="1">
+                <tr>
+                    <th><a href="#" onclick="newCustomer">Add Customer</a></th>
+                    <th></th>
+                    <th>idCustomer</th>
+                    <th>firstName</th>
+                    <th>lastName</th>
+                    <th>address</th>
+                    
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >1</td>
+                    <td >Luanne</td>
+                    <td align="right" >Platter</td>
+                    <td>2125 Prop St., Arlen, TX 770022</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >2</td>
+                    <td >Dale</td>
+                    <td align="right" >Gribble</td>
+                    <td>589 Ane Rd., Arlen, TX 77002</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >3</td>
+                    <td >Yogi</td>
+                    <td align="right" >Victor</td>
+                    <td>4721 Ulica St., Arlen, TX 77022</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >4</td>
+                    <td >John</td>
+                    <td align="right" >Redcorn</td>
+                    <td>568 Costam Cir., Arlen, TX 77022</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >5</td>
+                    <td >Jenny</td>
+                    <td align="right" >Medina</td>
+                    <td>9868 Mike Judge Ln. Arlen, TX 77022</td>
+                </tr>
+
+            </table>
+            
+        </section>
+<!-- *****INSERT****** -->
+<div id="insert">
+    <form method="POST" id="AddCustomer">
+        <legend><strong>Add Customer</strong></legend>
+        <fieldset class="fields">
+            <input type="hidden" name="idCustomer" id="addidCustomer" value="1">
+            <label> New Customer: </label> 
+              <label> First Name </label> <input type="text" name="firstName" value="Luanne">
+              <label> Last Name</label> <input type="text" name="lastName" value="Platter">
+              <label>Address  </label> <input type="text" value="2125 Prop St., Arlen, TX 770022">
+        </fieldset>
+            <input class="btn" type="submit" id="addidCustomer" value="Save Added Customer">
+            <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+      </form> 
+
+    </main>
+    <hr>
+    <footer>
+        <p>&copy; 2023 Monika Marek & Andrew Serrano</p>
+    </footer>
+</body>
+</html>

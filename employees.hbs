@@ -1,6 +1,10 @@
 <!-- index.hbs -->
 
 {{!-- Create customer table --}}
+<h2>Employees</h1>
+<p>Meet Our Executive Team:</p>
+<img src="/img/img.jpeg" alt="The employees of Tegridy Grange">
+<br>
 <table id="employees-table">
 
     {{!-- Header section --}}
@@ -28,7 +32,7 @@
             <td>{{this.lastName}}</td>
             <td>{{this.email}}</td>
             <td>{{this.phoneNumber}}</td>
-           
+            <td><button onclick="deleteEmployee({{this.idEmployee}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -45,7 +49,7 @@
     <label for="input-lastName">Last Name: </label>
     <input type="text" name="input-lastName" id="input-lastName">
 
-    <label for="input-email">Address: </label>
+    <label for="input-email">Email Address: </label>
     <input type="email" name="input-email" id="input-email">
 
     <label for="input-phoneNumber">Address: </label>
@@ -56,3 +60,5 @@
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="js/add_employees.js"></script> 
+<script src="./js/delete_employee.js"></script>
+

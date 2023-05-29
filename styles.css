@@ -21,7 +21,6 @@ a {
   padding: 3px;
   color: #B33030;
   text-decoration: none;
-  text-align: center;
   margin-right: 10px;
   font-weight: bold;
   border: 1px solid;
@@ -97,7 +96,6 @@ select {
   
   h2 {
     color: #820000;
-    text-align: center;
   }
   
   /* Style the article */
@@ -108,11 +106,6 @@ select {
   
   h3 {
     color: #820000;
-    text-align: center;
-  }
-
-  h4 {
-    text-align: center;
   }
   
   p {
@@ -120,7 +113,6 @@ select {
     width: 55%;
     margin-right: auto;
     margin-left: auto;
-    text-align: center;
   }
   
   /* Style the table */

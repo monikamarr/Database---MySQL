@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='robots' content='noindex,noarchive,nofollow'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Team #69 Tegridy Grange CS 340 Project</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+    <script src='main.js'></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>Tegridy Grange</h1>
+    </header>
+    <hr>
+    <nav>
+
+        <a href="index.html">HomePage</a>
+        <a href="Employees.html">Employees</a>
+        <a href="Customers.html">Customers</a>
+        <a href="Products.html">Products</a>
+        <a href="Vendors.html">Vendors</a>
+        <a href="SalesInvoices.html">Sales Invoices</a>
+        <a href="ProductSales.html">Product Sales</a>
+    </nav>
+    <main>
+        <img src="im.jpeg" alt="Propane">
+        <section>
+            <h2>Tegridy Grange</h2>
+            
+            <article id="products" class="">
+
+                <h3>Products Offered</h3>
+                <p>Here is a table of Products we offer provided to us by our wonderful vendors! Be sure to check it whenever you need help managing inventory and letting the customer know what we have to sell!</p>
+            </article>
+            <table border="1" cellpadding="1">
+                <tr>
+                    <th><a href="#" onclick="newProducts">Add Product</a></th>
+                    <th></th>
+                    <th>idProduct</th>
+                    <th>productName</th>
+                    <th>wholesalePrice</th>
+                    <th>retailPrice</th>
+                    <th>Vendors_idVendor</th>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >1</td>
+                    <td >Liquid Propane</td>
+                    <td align="right" >99.99</td>
+                    <td>149.99</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >2</td>
+                    <td >Grill</td>
+                    <td align="right" >119.99</td>
+                    <td>169.99</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >3</td>
+                    <td >Propane Tank</td>
+                    <td align="right" >109.99</td>
+                    <td>159.99</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >4</td>
+                    <td >Valve</td>
+                    <td align="right" >59.99</td>
+                    <td>119.99</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >5</td>
+                    <td >Hose</td>
+                    <td align="right" >27.99</td>
+                    <td>69.99</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+                    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+                    <td align="right" >6</td>
+                    <td >Adapter</td>
+                    <td align="right" >25.99</td>
+                    <td>59.99</td>
+                    <td>5</td>
+                </tr>
+            </table>
+            <div id="insert">
+                <form method="POST" id="addProduct">
+                    <legend><strong>Add Product</strong></legend>
+                      <fieldset class="fields">
+                        <label> idProduct </label> <input type="text" name="idProduct">
+                        <label> productName </label> <input type="text" name="productName">
+                        <label> wholesalePrice</label> <input type="text" name="wholesalePrice">
+                        <label> retailPrice </label> <input type="text" name="retailPrice">
+                        <label> Vendors_idVendor</label> 
+                        
+                    <select name="Vendors_idVendor">
+                        <option value="" selected disabled>Select a vendor</option>
+                        <option value="0">&nbsp;</option>
+                        <option value="1">Vogner</option>
+                        <option value="2">Char-King</option>
+                        <option value="3">BigPropane</option>
+                        <option value="4">Norman S. Propane</option>
+                        <option value="5">Green Propane</option>
+                    </select>
+                  </fieldset>
+                      <input class="btn" type="submit" id="addPerson" value="Add Product">
+                      <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+                </form> 
+        </section>
+
+
+
+    </main>
+    <hr>
+    <footer>
+        <p>&copy; 2023 Monika Marek & Andrew Serrano</p>
+    </footer>
+</body>
+</html>
