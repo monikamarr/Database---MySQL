@@ -8,9 +8,6 @@
 const express = require('express');   // We are using the express library for the web server
 const app     = express();            // We need to instantiate an express object to interact with the server in our code
 const db = require('./database/db-connector')
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))  //lines 8-10 added because of step 5 github
-app.use(express.static('public'))
 const PORT        = 35489;                 // Set a port number at the top so it's easy to change in the future
 
 
@@ -19,7 +16,10 @@ const exphbs = require('express-handlebars');     // Import express-handlebars
 app.engine('.hbs', engine({extname: ".hbs"}));  // Create an instance of the handlebars engine to process templates
 app.set('view engine', '.hbs');                 // Tell express to use the handlebars engine whenever it encounters a *.hbs file.
 
-
+app.use(express.static(__dirname + '/public'));
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))  //lines 8-10 added because of step 5 github
+app.use(express.static('public'))
 
 /*
     ROUTES
@@ -120,32 +120,25 @@ app.get('/productSales', function(req, res){
                 ORDER BY
                     salesInvoiceID, salesDate;`;
     
-    let query2 =    `SELECT * FROM Products;`;
-    db.pool.query(query1, function(error, rows, fields){
-        let sales = rows;
-        db.pool.query(query2, (error, rows, fields) => {
-            let products = rows;
+        db.pool.query(query1, (error, rows, fields) => {
+
             // db.pool.query(query3, (error, rows, fields) => {
             //     let orders = rows;
             //     console.log(orders)
-                return res.render('productSales', {data: sales, products: products})
+                return res.render('productSales', {data: rows})
             })
-        })
-    })
-    
-
-
+        }) 
 
 // -------------------------------- POST ------------------------------------
 
 //AJAX ADD Employee FUNCTION
-app.post('/add-employees-ajax', function(req, res) 
+app.post('/add-employee-ajax', function(req, res) 
 {
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
     // Create the query and run it on the database
-    query1 = `INSERT INTO Employees (firstName, lastName, address) VALUES ('${data.firstName}', '${data.lastName}','${data.email}', ${data.phoneNumber})`;
+    query1 = `INSERT INTO Employees (firstName, lastName, email, phoneNumber) VALUES ('${data.firstName}', '${data.lastName}', '${data.email}', '${data.phoneNumber}')`;
     db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
@@ -158,8 +151,8 @@ app.post('/add-employees-ajax', function(req, res)
         else
         {
             // If there was no error, perform a SELECT * on bsg_people
-            query2 = `SELECT * FROM Customers;`;
-            db.pool.query(query2, function(error, rows, fields){
+            addNewEmployee = `SELECT * FROM Employees;`;
+            db.pool.query(addNewEmployee, function(error, rows, fields){
 
                 // If there was an error on the second query, send a 400
                 if (error) {

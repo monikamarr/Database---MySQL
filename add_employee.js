@@ -71,13 +71,13 @@ addRowToTable = (data) => {
     let newRow = parsedData[parsedData.length - 1]
 
     // Create a row and 4 cells
-    let row = document.createElement("TR");
-    let idEmployeeCell = document.createElement("TD");
-    let firstNameCell = document.createElement("TD");
-    let lastNameCell = document.createElement("TD");
-    let emailCell = document.createElement("TD");
-    let phoneNumberCell = document.createElement("TD");
-    let deleteCell = document.createElement("TD");
+    let row = document.createElement("tr");
+    let idEmployeeCell = document.createElement("td");
+    let firstNameCell = document.createElement("td");
+    let lastNameCell = document.createElement("td");
+    let emailCell = document.createElement("td");
+    let phoneNumberCell = document.createElement("td");
+    let deleteCell = document.createElement("td");
 
 
     // Fill the cells with correct data
@@ -106,4 +106,6 @@ addRowToTable = (data) => {
 
     // Add the row to the table
     currentTable.appendChild(row);
+
+
 }

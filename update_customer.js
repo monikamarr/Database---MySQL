@@ -9,19 +9,21 @@ updateCustomerForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // Get form fields we need to get data from
-    let inputAddress = document.getElementById("input-customer-update");
+    let inputLastName = document.getElementById("input-lastName-update");
+    let inputAddress = document.getElementById("input-address-update")
 
 
     // Get the values from the form fields
-    let address = inputAddress.value;
+    let lastNameValue = inputLastName.value;
+    let addressValue = inputAddress.value;
     
 
 
 
     // Put our data we want to send in a javascript object
     let data = {
-        address: addressValue,
-
+        lastName: lastNameValue,
+        address: addressValue
     }
     
     // Setup our AJAX request
@@ -34,7 +36,7 @@ updateCustomerForm.addEventListener("submit", function (e) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             // Add the new data to the table
-            updateRow(xhttp.response, addressValue);
+            updateRow(xhttp.response, lastNameValue);
 
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
@@ -65,7 +67,7 @@ function updateRow(data, idCustomer){
             let td = updateRowIndex.getElementsByTagName("td")[3];
 
             // Reassign homeworld to our value we updated to
-            td.innerHTML = parsedData[0].name; 
+            td.innerHTML = parsedData[0].address; 
        }
     }
 }
