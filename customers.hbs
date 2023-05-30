@@ -55,30 +55,3 @@
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="js/add_customer.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
 
-
-{{!-- UPDATE  --}}
-<h2>Updating A Customer</h2>
-<p>To update a customer, select their last name from the drop-down menu  </p>
-<form id="update-customer-form-ajax">
-
- 
-
-    <label for="input-lastName">Last Name: </label>
-    <select name="input-lastName" id="input-lastName-update">
-        <option>Select the Customer</option>
-        {{#each customers}}
-        <option value="{{this.idCustomer}}">{{this.lastName}}</option>
-        {{/each}}
-    </select>
-    {{!-- <label for="input-customer">Customer: </label>
-    <select name="input-customer" id="input-customer-update">
-        <option>Select a Customer</option>
-        {{#each customers}}
-        <option value="{{this.id}}">{{this.name}}</option>
-        {{/each}}
-    </select> --}}
-    <input type="submit">
-
-</form>
-
-<script src="./js/update_customer.js"></script>
