@@ -56,22 +56,3 @@
 <script src="js/add_salesInvoice.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
 
 
-{{!-- UPDATE  --}}
-<h2>Updating A Sales Invoice</h2>
-<p>To update a sales invoice, select the sales invoice ID from the drop-down menu  </p>
-<form id="update-salesInvoice-form-ajax">
-
- 
-
-    <label for="input-idSalesInvoice">Sales Invoice ID: </label>
-    <select name="input-idSalesInvoice" id="input-salesInvoice-update">
-        <option>Select the Sales Invoice</option>
-        {{#each salesInvoices}}
-        <option value="{{this.idSalesInvoice}}">{{this.idSalesInvoice}}</option>
-        {{/each}}
-    </select>
-    <input type="submit">
-
-</form>
-
-<script src="./js/update_salesInvoice.js"></script>
