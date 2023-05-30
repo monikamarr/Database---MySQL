@@ -58,23 +58,3 @@
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="js/add_product.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
 
-
-{{!-- UPDATE  --}}
-<h2>Updating A Product Form</h2>
-<p>To update a product, select its name from the drop-down menu  </p>
-<form id="update-product-form-ajax">
-
- 
-
-    <label for="input-productName">Product Name: </label>
-    <select name="input-productName" id="input-productName-update">
-        <option>Select the Product</option>
-        {{#each products}}
-        <option value="{{this.idProduct}}">{{this.productName}}</option>
-        {{/each}}
-    </select>
-    <input type="submit">
-
-</form>
-
-<script src="./js/update_product.js"></script>
