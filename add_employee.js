@@ -71,14 +71,15 @@ addRowToTable = (data) => {
     let newRow = parsedData[parsedData.length - 1]
 
     // Create a row and 4 cells
-    let row = document.createElement("tr");
-    let idEmployeeCell = document.createElement("td");
-    let firstNameCell = document.createElement("td");
-    let lastNameCell = document.createElement("td");
-    let emailCell = document.createElement("td");
-    let phoneNumberCell = document.createElement("td");
-    let deleteCell = document.createElement("td");
+    let row = document.createElement("TR");
+    let idEmployeeCell = document.createElement("TD");
+    let firstNameCell = document.createElement("TD");
+    let lastNameCell = document.createElement("TD");
+    let emailCell = document.createElement("TD");
+    let phoneNumberCell = document.createElement("TD");
 
+    //DELETE
+    let deleteCell = document.createElement("TD");
 
     // Fill the cells with correct data
     idEmployeeCell.innerText = newRow.idEmployee;
@@ -87,10 +88,11 @@ addRowToTable = (data) => {
     emailCell.innerText = newRow.email;
     phoneNumberCell.innerText = newRow.phoneNumber;
 
+    //delete data fill correct
     deleteCell = document.createElement("button");
     deleteCell.innerHTML = "Delete";
     deleteCell.onclick = function(){
-        deleteEmployee(newRow.id);
+        deleteEmployee(newRow.idEmployee);
     };
 
     // Add the cells to the row 
@@ -100,12 +102,10 @@ addRowToTable = (data) => {
     row.appendChild(emailCell);
     row.appendChild(phoneNumberCell);
     row.appendChild(deleteCell);
-    
-    // Add a row attribute so the deleteRow function can find a newly added row
-    row.setAttribute('data-value', newRow.idEmployee);
 
+    //row attributes with deleteRow
+    row.setAttribute('data-value', newRow.idEmployee);
+    
     // Add the row to the table
     currentTable.appendChild(row);
-
-
 }

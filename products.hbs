@@ -1,11 +1,9 @@
-<!-- index.hbs -->
-<h1>The server is running!</h1>
-<p>If you see this text, the server is <strong>definitely</strong> working!</p>
 <a href="/">Employee Tables</a>
 <a href="/customers">Customers Table</a>
 <a href="/products">Products Table</a>
+
 {{!-- Create customer table --}}
-<table id="customers-table">
+<table id="products-table">
 
     {{!-- Header section --}}
     <thead>
@@ -27,10 +25,10 @@
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr>
-            <td>{{this.idCustomer}}</td>
-            <td>{{this.firstName}}</td>
-            <td>{{this.lastName}}</td>
-            <td>{{this.address}}</td>
+            <td>{{this.idProduct}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.wholesalePrice}}</td>
+            <td>{{this.retailPrice}}</td>
            
         </tr>
         {{/each}}
@@ -40,21 +38,22 @@
 <!-- /views/index.hbs -->
 
 {{!-- Form to add a record to the table  --}}
-<h2>Adding Data with AJAX</h2>
-<p>To add a new employee, please enter their information below and click 'Submit'!</p>
-<form id="add-customer-form-ajax">
-    <label for="input-firstName">First Name: </label>
-    <input type="text" name="input-firstName" id="input-firstName">
-    
-    <label for="input-lastName">Last Name: </label>
-    <input type="text" name="input-lastName" id="input-lastName">
 
-    <label for="input-address">Address: </label>
-    <input type="address" name="input-address" id="input-address">
+<h2>Adding Data with AJAX</h2>
+<p>To add a new product, please enter their information below and click 'Submit'!</p>
+<form id="add-product-form-ajax">
+    <label for="input-productName">Product Name: </label>
+    <input type="text" name="input-productName" id="input-productName">
+    
+    <label for="input-wholesalePrice">Wholesale Price: </label>
+    <input type="number" name="input-wholesalePrice" id="input-wholesalePrice">
+
+    <label for="input-retailPrice">Retail Price: </label>
+    <input type="number" name="input-retailPrice" id="input-retailPrice">
 
 
     <input type="submit">
 </form>
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
-<script src="js/add_customer.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
+<script src="js/add_product.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
