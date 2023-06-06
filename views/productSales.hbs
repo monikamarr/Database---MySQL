@@ -1,9 +1,10 @@
 
 {{!-- Create customer table --}}
-<h2>Products Sales</h1>
+<h2>ℙ𝕣𝕠𝕕𝕦𝕔𝕥 𝕊𝕒𝕝𝕖𝕤</h2>
 <p>Thanks for your business!</p>
 <img src="/img/download.jpeg" alt="Cheers from Hank">
 <br>
+<h2>💲💲💲</h2>
 <table id="productSales-table">
 
     {{!-- Header section --}}
@@ -42,19 +43,21 @@
 <h2>Adding a New Order </h2>
 <p>To add a new product to your order, please enter its information below and click 'Submit'!</p>
     <form id="add-productSales-form" method="POST" action="/add-productSales">
-        <label for="input-salesInvoice">Sales Invoice:</label>
-        <select name="input-salesInvoice" id="input-salesInvoice" required>
-            {{#each salesInvoices}}
-            <option value="{{this.idSalesInvoice}}">{{this.idSalesInvoice}} | {{this.orderQuantity}} | {{this.productName}}</option>
-            {{/each}}
-        </select>
+        <label for="input-salesDate">Sales Date:</label>
+        <select name="input-salesDate" id="mySelect">
+        <option value="test">Select Sales Date</option>
+        {{#each data}}
+        <option value="{{this.idSalesInvoice}}">{{this.salesDate}}</option>
+        {{/each}}
+    </select>
 
         <label for="input-idProduct">Product:</label>
-        <select name="input-idProduct" id="input-idProduct" required>
-            {{#each products}}
-            <option value="{{this.idProduct}}">{{this.productName}}</option>
-            {{/each}}
-        </select>
+        <select name="input-productName" id="mySelect">
+        <option value="test">Select Product</option>
+        {{#each data}}
+        <option value="{{this.idProduct}}">{{this.productName}}</option>
+        {{/each}}
+    </select>
 
 
         <input type="submit" value="Add Order" />
