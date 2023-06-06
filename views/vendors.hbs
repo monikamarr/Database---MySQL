@@ -1,5 +1,6 @@
 
 {{!-- Create vendor table --}}
+<h2>𝕍𝕖𝕟𝕕𝕠𝕣𝕤</h2>
 <table id="vendors-table">
 
     {{!-- Header section --}}
@@ -30,36 +31,36 @@
         {{/each}}
     </tbody>
 </table>
-
+<div class="container">
 {{!-- INSERT --}}
-
+<div class="add-vendor">
 {{!-- Form to add a record to the table  --}}
-<h2>Adding a New Vendor</h2>
-<p>To add a new vendor, please enter their information below and click 'Submit'!</p>
+<h2>Add Vendor</h2>
+<p class="small">To add a new vendor, enter their information below and hit "Submit" </p>
 <form id="add-vendor-form-ajax">
     <label for="input-vendorName">Vendor's Name: </label>
     <input type="text" name="input-vendorName" id="input-vendorName">
     
     <label for="input-vendorAddress">Vendor's Address: </label>
-    <input type="text" name="input-vendorAddress" id="input-vendorAddress">
+    <input type="text" name="input-vendorAddress" id="input-vendorAddress" placeholder="Street City State Zip Code">
 
     <input type="submit">
 </form>
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src=".js/add_vendor.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
-
-
+</div>
+<div class="update-vendor">
 {{! --UPDATE --}}
 <h2>Update Vendor</h2>
-<p>To update a specific vendor, select their name from the drop-down menu</p>
+<p class="small">To update a specific vendor, select their name from the drop-down menu</p>
 <form id="update-vendor-form-ajax">
 
     <label for="input-vendorName">Vendor's Name: </label>
     <select name="input-vendorName" id="mySelect">
         <option value="test">Select Vendor</option>
         {{#each data}}
-        <option value="{{this.idVendor}}">{{this.vendorName}} {{this.vendorAddress}}</option>
+        <option value="{{this.idVendor}}">{{this.vendorName}}</option>
         {{/each}}
     </select>
 
@@ -70,5 +71,6 @@
     <input type="submit"> 
 
 </form>
-
+</div>
+</div>
 <script src="./js/update_vendor.js"></script>
