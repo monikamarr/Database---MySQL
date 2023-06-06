@@ -1,5 +1,7 @@
 
 {{!-- Create customer table --}}
+<h2>ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕤</h2>
+<img src="/img/im.jpeg" alt="Our propane product">
 <table id="products-table">
 
     {{!-- Header section --}}
@@ -37,7 +39,8 @@
 
 {{!-- Form to add a record to the table  --}}
 
-<h2>Adding Data with AJAX</h2>
+
+<h2>Add New Product</h2>
 <p>To add a new product, please enter their information below and click 'Submit'!</p>
 <form id="add-product-form-ajax">
     <label for="input-productName">Product Name: </label>
@@ -50,12 +53,13 @@
     <input type="text" name="input-retailPrice" id="input-retailPrice" placeholder="$">
 
 
-    <select name="input-idVendor" id="input-idVendor">
-        <option value="">Select a Vendor</option>
-        {{#each vendors}}
-        <option value="{{this.idVendor}}">{{this.vendorName}}</option>
+<select name="input-vendorName" id="mySelect">
+        <option value="test">Select Vendor</option>
+        {{#each data}}
+        <option value="{{this.idVendor}}">{{this.idVendor}}</option>
         {{/each}}
     </select>
+
 
     <input type="submit">
 </form>
@@ -66,7 +70,7 @@
 
 {{!--SEARCH PRODUCTS table --}}
 
-<h2>Search Using an HTML Form</h2>
+<h2>Search For a Product</h2>
 <p>Search by product name using the field below. Partial product names are OK too!</p>
 <form id="search-product-html" method='GET' action='/products'>
     <label for="input-pname">Search by Product Name: </label>
