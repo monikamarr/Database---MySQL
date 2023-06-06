@@ -47,6 +47,7 @@ a:hover {
     margin: 0;
     padding-top: 30px;
     padding-bottom: 30px;
+    font-size: 60px;
   }
   
   /* Style the navigation menu */
@@ -162,6 +163,8 @@ select {
     
   }
   
+
+
   input[type="text"] {
     width: 100%;
     padding: 5px;
@@ -296,6 +299,7 @@ img {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
       
 }
 
@@ -325,3 +329,32 @@ hr{
   text-align: left;
   color: #F94A29;
  }
+
+ .container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.add-vendor {
+  flex: 1;
+  margin-right: 40px;
+  width: 300px !important;
+  border: 2px solid rgba(139, 0, 0, 0.5); ; 
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  padding: 25px;
+}
+
+.update-vendor {
+  flex: 1;
+  margin-left: 40px;
+  width: 300px !important;
+  border: 2px solid rgba(139, 0, 0, 0.5); 
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  padding-top: 15px;
+  
+}
+.small {
+  font-size: 10px;
+}
