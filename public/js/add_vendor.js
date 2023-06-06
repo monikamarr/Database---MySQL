@@ -82,7 +82,7 @@ addRowToTable = (data) => {
     
 
     // Add a custom row attribute so the deleteRow function can find a newly added row
-    row.setAttribute('data-value', newRow.idVendor);  
+    // row.setAttribute('data-value', newRow.idVendor);  ???????
 
     // Add the row to the table
     currentTable.appendChild(row);
