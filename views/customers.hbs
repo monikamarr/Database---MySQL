@@ -1,6 +1,7 @@
 
 {{!-- Create customer table --}}
-<h2>Customers</h1>
+<h2>ℂ𝕦𝕤𝕥𝕠𝕞𝕖𝕣𝕤</h2>
+<h2>𖠋𖠋𖠋𖠋𖠋</h2>
 <table id="customers-table">
 
     {{!-- Header section --}}
@@ -36,8 +37,9 @@
 {{!-- INSERT --}}
 
 {{!-- Form to add a record to the table  --}}
+<div>
 <h2>Adding Customer </h2>
-<p>To add a new customer, please enter their information below and click 'Submit'!</p>
+<p>To add a new customer, please enter their information below and click 'Submit'</p>
 <form id="add-customer-form-ajax">
     <label for="input-firstName">First Name: </label>
     <input type="text" name="input-firstName" id="input-firstName">
@@ -46,12 +48,12 @@
     <input type="text" name="input-lastName" id="input-lastName">
 
     <label for="input-address">Address: </label>
-    <input type="text" name="input-address" id="input-address">
+    <input type="text" name="input-address" id="input-address" placeholder="0000 Street Name, City, State, Zip Code">
 
 
     <input type="submit">
 </form>
-
+</div>
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add_customer.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
 
