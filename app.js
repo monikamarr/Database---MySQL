@@ -117,27 +117,25 @@ app.get('/salesInvoices', function(req, res)
     });                                                         // received back from the query
 app.get('/productSales', function(req, res){
     let query1 = `SELECT
-                SalesInvoices.idSalesInvoice AS salesInvoiceID,
-                SalesInvoices.orderQuantity AS orderQuantity,
-                SalesInvoices.productPrice AS productPrice,
-                SalesInvoices.salesDate AS salesDate,
-                Customers.firstName AS customerFirstName,
-                Customers.lastName AS customerLastName,
-                Products.productName AS productName,
-                Employees.firstName AS employeeFirstName,
-                Employees.lastName AS employeeLastName
+                ProductSales.idProductSales,
+                SalesInvoices.idSalesInvoice,
+                SalesInvoices.orderQuantity,
+                SalesInvoices.productPrice,
+                SalesInvoices.salesDate,
+                Products.idProduct,
+                Products.productName,
                 FROM
-                    SalesInvoices
+                    ProductSales
                 INNER JOIN
-                    ProductSales ON SalesInvoices.idSalesInvoice = ProductSales.idSalesInvoice
-                INNER JOIN
-                    Customers ON SalesInvoices.idCustomer = Customers.idCustomer
-                INNER JOIN
-                    Employees ON SalesInvoices.idEmployee = Employees.idEmployee
+                    SalesInvoices ON ProductSales.idSalesInvoice = SalesInvoices.idSalesInvoice
+                
                 INNER JOIN
                     Products ON ProductSales.idProduct = Products.idProduct
                 ORDER BY
                     salesInvoiceID, salesDate;`;
+        let salesInv = `SELECT * FROM SalesInvoices;`;
+        let products = `SELECT * FROM Products;`;
+    // let test = `SELECT SalesInvoices.idSalesInvoice FROM SalesInvoices`;
     
         db.pool.query(query1, (error, rows, fields) => {
 
