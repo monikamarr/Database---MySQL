@@ -1,6 +1,7 @@
 
 {{!-- Create customer table --}}
-<h2>Sales Invoices</h1>
+<h2>𝕊𝕒𝕝𝕖𝕤 𝕀𝕟𝕧𝕠𝕚𝕔𝕖𝕤</h2>
+<h2>✎ᝰ. </h2>
 <table id="salesInvoices-table">
 
     {{!-- Header section --}}
@@ -36,14 +37,15 @@
 {{!-- INSERT --}}
 
 {{!-- Form to add a record to the table  --}}
+<div>
 <h2>Adding a Sale </h2>
 <p>To add a new sales invoice, please enter the information below and click 'Submit'!</p>
 <form id="add-salesInvoice-form-ajax">
     <label for="input-orderQuantity">Order Quantity: </label>
-    <input type="number" name="input-orderQuantity" id="input-orderQuantity">
+    <input type="number" name="input-orderQuantity" id="input-orderQuantity" placeholder="Give a number">
     
     <label for="input-productPrice">Product Price: </label>
-    <input type="number" name="input-productPrice" id="input-productPrice">
+    <input type="number" name="input-productPrice" id="input-productPrice" placeholder="$">
 
     <label for="input-salesDate">Sales Date: </label>
     <input type="date" name="input-salesDate" id="input-salesDate">
@@ -51,6 +53,30 @@
 
     <input type="submit">
 </form>
-
+</div>
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add_salesInvoice.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
+
+
+{{!-- Embed our javascript to handle the DOM manipulation --}}
+<script>
+    function formatDate(dateInputId, formattedDateId) {
+        var dateInput = document.getElementById(dateInputId);
+        var salesDate = new Date(dateInput.value);
+        
+        var year = salesDate.getFullYear();
+        var month = String(salesDate.getMonth() + 1).padStart(2, '0');
+        var day = String(salesDate.getDate()).padStart(2, '0');
+        
+        var formattedDate = `${month}/${day}/${year}`;
+
+        document.getElementById(formattedDateId).textContent = formattedDate;
+    }
+
+    document.getElementById('input-salesDate').addEventListener('change', function() {
+        formatDate('input-salesDate', 'formattedSalesDate');
+    });
+
+    // Initial formatting
+    formatDate('input-salesDate', 'formattedSalesDate');
+</script>
