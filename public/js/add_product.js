@@ -1,8 +1,8 @@
 // Get the objects we need to modify
-let addCustomerForm = document.getElementById('add-product-form-ajax');
+let addProductForm = document.getElementById('add-product-form-ajax');
 
 // Modify the objects we need
-addCustomerForm.addEventListener("submit", function (e) {
+addProductForm.addEventListener("submit", function (e) {
     
     // Prevent the form from submitting
     e.preventDefault();
@@ -11,14 +11,14 @@ addCustomerForm.addEventListener("submit", function (e) {
     let inputProductName = document.getElementById("input-productName");
     let inputWholesalePrice= document.getElementById("input-wholesalePrice");
     let inputRetailPrice = document.getElementById("input-retailPrice");
-    let inputIDVendor = document.getElementById("input-idVendor");
+    let inputIdVendor = document.getElementById("input-idVendor");
     
 
     // Get the values from the form fields
     let productNameValue = inputProductName.value;
     let wholesalePriceValue = inputWholesalePrice.value;
     let retailPriceValue = inputRetailPrice.value;
-    let idVendorValue = inputIDVendor.value;
+    let idVendorValue = inputIdVendor.value;
 
     // Put our data we want to send in a javascript object
     let data = {
@@ -44,7 +44,7 @@ addCustomerForm.addEventListener("submit", function (e) {
             inputProductName.value = '';
             inputWholesalePrice.value = '';
             inputRetailPrice.value = '';
-            inputIDVendor.value = '';
+            inputIdVendor.value = '';
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
             console.log("There was an error with the input. Http Status = " + xhttp.stat)
