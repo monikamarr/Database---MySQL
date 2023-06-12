@@ -9,8 +9,8 @@ updateVendorForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // Get form fields we need to get data from
-    let inputVendorName = document.getElementById("mySelect");
-    let inputVendorAddress = document.getElementById("input-vendorAddress-update");
+    let inputVendorName = document.getElementById("input-vendorName");
+    let inputVendorAddress = document.getElementById("input-address-update");
 
     // Get the values from the form fields
     let vendorNameValue = inputVendorName.value;
@@ -62,10 +62,28 @@ function updateRow(data, idVendor){
             let updateRowIndex = table.getElementsByTagName("tr")[i];
 
             // Get td of homeworld value
-            let td = updateRowIndex.getElementsByTagName("td")[3];
+            let td = updateRowIndex.getElementsByTagName("td")[2];
 
             // Reassign homeworld to our value we updated to
-            td.innerHTML = parsedData[0].name; 
+            td.innerHTML = parsedData[0].vendorAddress; 
        }
     }
 }
+// function updateRow(data, idVendor) {
+//     let parsedData = JSON.parse(data);
+  
+//     let table = document.getElementById("vendors-table");
+  
+//     for (let i = 0; i < table.rows.length; i++) {
+//       let row = table.rows[i];
+//       let vendorId = row.getAttribute("data-value");
+  
+//       if (vendorId == idVendor) {
+//         // Update the vendor's address in the table
+//         let addressCell = row.cells[2];
+//         addressCell.innerText = parsedData[0].vendorAddress;
+//         break;
+//       }
+//     }
+//   }
+  
