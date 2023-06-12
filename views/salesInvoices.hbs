@@ -26,8 +26,13 @@
         <tr>
             <td>{{this.idSalesInvoice}}</td>
             <td>{{this.orderQuantity}}</td>
-            <td>{{this.productPrice}}</td>
             <td>{{this.salesDate}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.retailPrice}}</td>
+            <td>{{this.firstName}}</td>
+            <td>{{this.lastName}}</td>
+            <td>{{this.idEmployee}}</td>
+            <td><button onclick="deleteSalesInvoice({{this.idSalesInvoice}})">Delete</button></td>
            
         </tr>
         {{/each}}
@@ -41,42 +46,55 @@
 <h2>Adding a Sale </h2>
 <p>To add a new sales invoice, please enter the information below and click 'Submit'!</p>
 <form id="add-salesInvoice-form-ajax">
-    <label for="input-orderQuantity">Order Quantity: </label>
-    <input type="number" name="input-orderQuantity" id="input-orderQuantity" placeholder="Give a number">
+    <form id="add-salesInvoice-form-ajax">
+
+        <select name="input-productName" id="input-productName" required>
+        <option value="test">Select Product</option>
+        {{#each data}}
+        <option value="{{this.productName}}">{{this.productName}}</option>
+        {{/each}}
+    </select>
+    <select name="input-idEmployee" id="input-idEmployee" required>
+        <option value="test">Select Employee</option>
+        {{#each data}}
+        <option value="{{this.idEmployee}}">{{this.idEmployee}}</option>
+        {{/each}}
+    </select>
+        <label for="input-orderQuantity">Order Quantity: </label>
+        <input type="number" name="input-orderQuantity" id="input-orderQuantity" placeholder="Quantity" required>
+        
+        <label for="input-salesDate">Sales Date: </label>
+        <input type="date" name="input-salesDate" id="input-salesDate">
+
     
-    <label for="input-productPrice">Product Price: </label>
-    <input type="number" name="input-productPrice" id="input-productPrice" placeholder="$">
 
-    <label for="input-salesDate">Sales Date: </label>
-    <input type="date" name="input-salesDate" id="input-salesDate">
+        <label for="input-retailPrice">Retail Price: </label>
+        <input type="text" name="input-retailPrice" id="input-retailPrice" placeholder="$" required>
 
+    
+    
+    <label for="input-firstName">Customer's First Name: </label>
+        <input type="text" name="input-firstName" id="input-firstName" placeholder="Enter customer's first name">
 
-    <input type="submit">
+    <label for="input-lastName">Customer's Last Name: </label>
+        <input type="text" name="input-lastName" id="input-lastName" placeholder="Enter customer's last name">
+
+    
+
+        {{!-- <label for="input-firstName">Customer's First Name: </label>
+        <input type="text" name="input-firstName" id="input-firstName" placeholder="Enter first name">
+
+        <label for="input-lastName">Customer's Last Name: </label>
+        <input type="text" name="input-lastName" id="input-lastName" placeholder="Enter last name">
+
+        <label for="input-idEmployee">Employee ID: </label>
+        <input type="number" name="input-idEmployee" id="input-idEmployee" placeholder="Enter employee ID"> --}}
+
+        <input type="submit">
+    </form>
 </form>
 </div>
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
-<script src="./js/add_salesInvoice.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
+<script src="./js/add_salesInvoice.js"></script> 
+<script src="./js/delete_salesInvoice.js"></script>
 
-
-{{!-- Embed our javascript to handle the DOM manipulation --}}
-<script>
-    function formatDate(dateInputId, formattedDateId) {
-        var dateInput = document.getElementById(dateInputId);
-        var salesDate = new Date(dateInput.value);
-        
-        var year = salesDate.getFullYear();
-        var month = String(salesDate.getMonth() + 1).padStart(2, '0');
-        var day = String(salesDate.getDate()).padStart(2, '0');
-        
-        var formattedDate = `${month}/${day}/${year}`;
-
-        document.getElementById(formattedDateId).textContent = formattedDate;
-    }
-
-    document.getElementById('input-salesDate').addEventListener('change', function() {
-        formatDate('input-salesDate', 'formattedSalesDate');
-    });
-
-    // Initial formatting
-    formatDate('input-salesDate', 'formattedSalesDate');
-</script>
