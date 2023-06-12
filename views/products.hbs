@@ -29,7 +29,6 @@
             <td>{{this.wholesalePrice}}</td>
             <td>{{this.retailPrice}}</td>
             <td>{{this.idVendor}}</td>
-           
         </tr>
         {{/each}}
     </tbody>
@@ -44,16 +43,16 @@
 <p>To add a new product, please enter their information below and click 'Submit'!</p>
 <form id="add-product-form-ajax">
     <label for="input-productName">Product Name: </label>
-    <input type="text" name="input-productName" id="input-productName">
+    <input type="text" name="input-productName" id="input-productName" required>
     
     <label for="input-wholesalePrice">Wholesale Price: </label>
-    <input type="text" name="input-wholesalePrice" id="input-wholesalePrice" placeholder="$">
+    <input type="text" name="input-wholesalePrice" id="input-wholesalePrice" placeholder="$" required>
 
     <label for="input-retailPrice">Retail Price: </label>
-    <input type="text" name="input-retailPrice" id="input-retailPrice" placeholder="$">
+    <input type="text" name="input-retailPrice" id="input-retailPrice" placeholder="$" required>
 
 
-<select name="input-vendorName" id="mySelect">
+<select name="input-idVendor" id="input-idVendor">
         <option value="test">Select Vendor</option>
         {{#each data}}
         <option value="{{this.idVendor}}">{{this.idVendor}}</option>
@@ -65,7 +64,7 @@
 </form>
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
-<script src=".js/add_product.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
+<script src="./js/add_product.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
 
 
 {{!--SEARCH PRODUCTS table --}}
