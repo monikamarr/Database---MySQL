@@ -39,16 +39,16 @@
 <p class="small">To add a new vendor, enter their information below and hit "Submit" </p>
 <form id="add-vendor-form-ajax">
     <label for="input-vendorName">Vendor's Name: </label>
-    <input type="text" name="input-vendorName" id="input-vendorName">
+    <input type="text" name="input-vendorName" id="input-vendorName" required>
     
-    <label for="input-vendorAddress">Vendor's Address: </label>
+    <label for="input-vendorAddress">Vendor's Address <em>(Optional)</em>: </label>
     <input type="text" name="input-vendorAddress" id="input-vendorAddress" placeholder="Street City State Zip Code">
 
     <input type="submit">
 </form>
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
-<script src=".js/add_vendor.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
+<script src="./js/add_vendor.js"></script>   {{!--CHANGED FROM MONIKA'S APP--}}
 </div>
 <div class="update-vendor">
 {{! --UPDATE --}}
@@ -57,7 +57,7 @@
 <form id="update-vendor-form-ajax">
 
     <label for="input-vendorName">Vendor's Name: </label>
-    <select name="input-vendorName" id="mySelect">
+    <select name="input-vendorName" id="mySelect" >
         <option value="test">Select Vendor</option>
         {{#each data}}
         <option value="{{this.idVendor}}">{{this.vendorName}}</option>
@@ -65,7 +65,7 @@
     </select>
 
     <label for="input-address">Address: </label>
-<input type="text" name="input-address" id="input-address-update" placeholder="Enter new address">
+    <input type="text" name="input-address-update" id="input-address-update" placeholder="Enter new address">
 
 
     <input type="submit"> 
